@@ -3,9 +3,13 @@ CREATE DATABASE cta_dev;
 
 \c cta_dev;
 
-DROP TABLE IF EXISTS test;
+DROP TABLE IF EXISTS cryptos;
 
-CREATE TABLE test (
+CREATE TABLE cryptos (
     id SERIAL PRIMARY KEY, 
-    name TEXT
+    name TEXT NOT NULL,
+    image TEXT NOT NULL,
+    symbol TEXT NOT NULL,
+    price INTEGER DEFAULT 0,
+    own_shares BOOLEAN
 );
