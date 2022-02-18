@@ -1,6 +1,11 @@
-DROP TABLE IF EXISTS test;
+DROP TABLE IF EXISTS cryptos;
 
-CREATE TABLE test (
+CREATE TABLE cryptos (
     id SERIAL PRIMARY KEY, 
-    name TEXT
+    name TEXT NOT NULL,
+    image TEXT,
+    description TEXT,
+    price NUMERIC DEFAULT 0,
+    rating NUMERIC DEFAULT 0,
+    featured BOOLEAN
 );
