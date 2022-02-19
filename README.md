@@ -2,7 +2,7 @@
 Back-end: https://mc-store-app-cta-be.herokuapp.com
 Front-end: https://frosty-spence-a0b2f1.netlify.app
 
-# PERN Final Project Template
+## PERN Final Project Template
 
 - select `use this template`
 - clone this repo
