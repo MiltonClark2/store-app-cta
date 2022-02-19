@@ -12,7 +12,21 @@ cryptos.get("/", async(req, res) => {
         if(allCryptos[0]){
             res.status(200).json(allCryptos);
         } else {
-            res.status(404).json("No cryptos returned from db");
+            res.status(404).json("Error: No cryptos returned from db");
+        }
+    } catch(err) {
+        return err;
+    }
+});
+
+cryptos.get("/:id", async (req, res) => {
+    const { id } = req.params;
+    try{
+        const crypto = await getCrypto(id);
+        if(crypto.id){
+            res.status(200).json(crypto);
+        } else {
+            res.status(404).json("Error: Crypto not found");
         }
     } catch(err) {
         return err;
