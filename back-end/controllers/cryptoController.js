@@ -2,7 +2,8 @@ const express = require("express");
 const cryptos = express.Router();
 const {
     getAllCryptos,
-    getCrypto
+    getOneCrypto,
+    createCrypto
 } = require("../queries/cryptos.js");
 
 
@@ -19,12 +20,12 @@ cryptos.get("/", async(req, res) => {
     }
 });
 
-cryptos.get("/:id", async (req, res) => {
+cryptos.get("/:id", async(req, res) => {
     const { id } = req.params;
     try{
-        const crypto = await getCrypto(id);
-        if(crypto.id){
-            res.status(200).json(crypto);
+        const oneCrypto = await getOneCrypto(id);
+        if(oneCrypto.id){
+            res.status(200).json(oneCrypto);
         } else {
             res.status(404).json("Error: Crypto not found");
         }
@@ -32,6 +33,22 @@ cryptos.get("/:id", async (req, res) => {
         return err;
     }
 });
+
+cryptos.post("/", async(req, res) => {
+    const { body } = req;
+    try{
+        const createdCrypto = await createCrypto(body);
+        if(createdCrypto.id){
+            res.status(200).json(createdCrypto);
+        } else {
+            res.status(422).json("Error: Crypto creation error");
+        }
+    } catch(err) {
+        console.log(err);
+    }
+});
+
+
 
 
 
