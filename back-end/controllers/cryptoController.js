@@ -67,7 +67,7 @@ cryptos.put("/:id", async(req, res) => {
     if(updatedCrypto.id){
         res.status(200).json(updatedCrypto);
     } else {
-        res.status(404).json("Error: Crypto not found");
+        res.status(404).json("Error: Unable to update Crypto");
     }
 });
 

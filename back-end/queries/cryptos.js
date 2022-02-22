@@ -55,7 +55,7 @@ const deleteCrypto = async(id) => {
 const updateCrypto = async(id, crypto) => {
     try{
         const updatedCrypto = await db.one(
-            "UPDATE cryptos SET name=$1, image=$2, description=$3, price=$4, rating=$5, featured=$6, WHERE id=$7 RETURNING *",
+            "UPDATE cryptos SET name=$1, image=$2, description=$3, price=$4, rating=$5, featured=$6 WHERE id=$7 RETURNING *",
             [
                 crypto.name,
                 crypto.image,
