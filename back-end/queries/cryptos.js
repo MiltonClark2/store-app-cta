@@ -40,12 +40,43 @@ const createCrypto = async(crypto) => {
     }
 };
 
+const deleteCrypto = async(id) => {
+    try{
+        const deletedCrypto = await db.one(
+            "DELETE FROM cryptos WHERE id=$1 RETURNING *",
+            id
+        );
+        return deletedCrypto;
+    } catch(err) {
+        return err;
+    }
+};
+
+const updateCrypto = async(id, crypto) => {
+    try{
+        const updatedCrypto = await db.one(
+            "UPDATE cryptos SET name=$1, image=$2, description=$3, price=$4, rating=$5, featured=$6, WHERE id=$7 RETURNING *",
+            [
+                crypto.name,
+                crypto.image,
+                crypto.description,
+                crypto.price,
+                crypto.rating,
+                crypto.featured,
+                id
+            ]
+        );
+        return updatedCrypto;
+    } catch(err) {
+        return err;
+    }
+};
+
 
 module.exports = {
     getAllCryptos,
     getOneCrypto,
     createCrypto,
-
-
-
+    deleteCrypto,
+    updateCrypto
 };

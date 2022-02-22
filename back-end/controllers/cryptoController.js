@@ -3,7 +3,9 @@ const cryptos = express.Router();
 const {
     getAllCryptos,
     getOneCrypto,
-    createCrypto
+    createCrypto,
+    deleteCrypto,
+    updateCrypto
 } = require("../queries/cryptos.js");
 
 
@@ -48,8 +50,26 @@ cryptos.post("/", async(req, res) => {
     }
 });
 
+cryptos.delete("/:id", async(req, res) => {
+    const { id } = req.params;
+    const deletedCrypto = await deleteCrypto(id);
+    if(deletedCrypto.id){
+        res.status(200).json(deletedCrypto);
+    } else {
+        res.status(404).json("Error: Crypto not found");
+    }
+});
 
-
+cryptos.put("/:id", async(req, res) => {
+    const { id } = req.params;
+    const { body } = req;
+    const updatedCrypto = await updateCrypto(id, body);
+    if(updatedCrypto.id){
+        res.status(200).json(updatedCrypto);
+    } else {
+        res.status(404).json("Error: Crypto not found");
+    }
+});
 
 
 module.exports = cryptos;
