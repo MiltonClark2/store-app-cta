@@ -27,16 +27,16 @@ const DisplayOneCrypto = () => {
                 console.log(err);
             });
     };
-    
+
     return(
         <div>
             <ul>
                 <li>{crypto.name}</li>
                 <img src={crypto.image} alt={crypto.name} />
                 <li>{crypto.description}</li>
-                <li>{crypto.price}</li>
-                <li>{crypto.rating}</li>
-                <label>{crypto.featured}</label>
+                <li>Price: {crypto.price}</li>
+                <li>Rating: {crypto.rating}</li>
+                <li>Featured: {crypto.featured}</li>
             </ul>
 
             <Link to={`/cryptos`}>
