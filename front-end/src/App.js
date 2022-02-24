@@ -1,30 +1,35 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-const API = process.env.REACT_APP_API_URL;
+// DEPENDENCIES
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-console.log(API);
+//COMPONENTS
+import Home from "./Pages/Home";
+import NavBar from "./Components/NavBar";
+import AllCryptos from "./Components/AllCryptos";
+import DisplayOneCrypto from "./Components/DisplayOneCrypto";
+import CryptoEditForm from "./Components/CryptoEditForm";
+import CryptoNewForm from "./Components/CryptoNewForm";
+
+
+
 function App() {
-  const [days, setDays] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`${API}/test`)
-      .then(
-        (response) => {
-          setDays(response.data);
-        },
-        (error) => console.log("get", error)
-      )
-      .catch((c) => console.warn("catch", c));
-  }, []);
   return (
-    <div>
-      <ul>
-        {days.map((day) => (
-          <li key={day.name}>{day.name}</li>
-        ))}
-      </ul>
+    <div className="App">
+      <Router>
+        <NavBar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cryptos" element={<AllCryptos />} />
+            <Route path="/cryptos/new" element={<CryptoNewForm />} />
+            <Route exact path="/cryptos/:id" element={<DisplayOneCrypto />} />
+            <Route path="/cryptos/:id/edit" element={<CryptoEditForm />} />
+          </Routes>
+        </main>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;
+
+

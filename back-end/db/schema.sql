@@ -8,8 +8,9 @@ DROP TABLE IF EXISTS cryptos;
 CREATE TABLE cryptos (
     id SERIAL PRIMARY KEY, 
     name TEXT NOT NULL,
-    image TEXT NOT NULL,
-    symbol TEXT NOT NULL,
+    image TEXT,
+    description TEXT,
     price INTEGER DEFAULT 0,
-    own_shares BOOLEAN
+    rating INTEGER DEFAULT 0,
+    featured BOOLEAN
 );
