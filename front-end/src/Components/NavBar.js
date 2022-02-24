@@ -13,6 +13,11 @@ const NavBar = () => {
                     Cryptocurrencies
                 </Link>
             </li>
+            <button>
+                <Link to="/cryptos/new">
+                    New Cryptocurrency
+                </Link>
+            </button>
         </ul>
     )
 };
