@@ -1,5 +1,6 @@
 // DEPENDENCIES
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 //COMPONENTS
 import Home from "./Pages/Home";
@@ -31,5 +32,6 @@ function App() {
 };
 
 export default App;
+
 
 

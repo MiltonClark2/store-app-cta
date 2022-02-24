@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 const NavBar = () => {
     return(
-        <ul>
+        <ul className="NavBar">
             <li>
                 <Link to = "/">
                     Home
@@ -13,11 +14,11 @@ const NavBar = () => {
                     Cryptocurrencies
                 </Link>
             </li>
-            <button type="button" class="btn btn-primary">
+            <Button type="button" class="btn btn-info">
                 <Link to="/cryptos/new">
                     New Cryptocurrency
                 </Link>
-            </button>
+            </Button>
         </ul>
     )
 };
