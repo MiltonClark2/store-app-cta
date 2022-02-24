@@ -38,7 +38,6 @@ const DisplayOneCrypto = () => {
                 <li>Rating: {crypto.rating}</li>
                 <li>Featured: {crypto.featured}</li>
             </ul>
-
             <Link to={`/cryptos`}>
                 <button>Back</button>
             </Link>
