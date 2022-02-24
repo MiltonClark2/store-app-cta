@@ -82,7 +82,7 @@ function CryptoEditForm() {
                 <label htmlFor="price">Price:</label>
                 <input
                     id="price"
-                    type="integer"
+                    type="numeric"
                     name="price"
                     value={crypto.price}
                     placeholder="0"
@@ -91,7 +91,7 @@ function CryptoEditForm() {
                 <label htmlFor="rating">Rating:</label>
                 <input
                     id="rating"
-                    type="integer"
+                    type="numeric"
                     name="rating"
                     value={crypto.rating}
                     placeholder="0"
