@@ -17,8 +17,9 @@ const AllCryptos = () => {
     let cryptosToDisplay = cryptos.map((crypto, index) => {
         return(
             <li key = { index }>
-                {crypto.name},
-                {crypto.description}
+                <h3>{crypto.name}</h3>
+                <img src={crypto.image} alt={crypto.name}/>
+                <div>{crypto.description}</div>
                 <Link to = {`/cryptos/${crypto.id}`}><h4>{crypto.name}</h4></Link>
             </li>
         )
@@ -26,13 +27,12 @@ const AllCryptos = () => {
 
     return(
         <div>
-            <h2>Displaying All Cryptocurrencies</h2>
+            <h1>Displaying All Cryptocurrencies</h1>
             <ul>
                 {cryptosToDisplay}
             </ul>
         </div>
-    )
-
+    );
 };
 
 export default AllCryptos;

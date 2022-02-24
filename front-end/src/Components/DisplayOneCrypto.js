@@ -27,7 +27,7 @@ const DisplayOneCrypto = () => {
                 console.log(err);
             });
     };
-
+    
     return(
         <div>
             <ul>
@@ -36,8 +36,9 @@ const DisplayOneCrypto = () => {
                 <li>{crypto.description}</li>
                 <li>{crypto.price}</li>
                 <li>{crypto.rating}</li>
-                <li>{crypto.featured}</li>
+                <label>{crypto.featured}</label>
             </ul>
+
             <Link to={`/cryptos`}>
                 <button>Back</button>
             </Link>
